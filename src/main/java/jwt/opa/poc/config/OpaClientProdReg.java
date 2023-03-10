@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,10 +19,13 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Component
-public class OpaClient {
+public class OpaClientProdReg {
 
-    private static final String URI = "http://localhost:8181/v1/data/authz/allow";
-    private static final Logger LOG = LoggerFactory.getLogger(OpaClient.class);
+    @Autowired
+    private FeignClientConfig feignClientConfig;
+
+    private static final String URI = "http://localhost:8181/v1/data/prodreg/allow";
+    private static final Logger LOG = LoggerFactory.getLogger(OpaClientProdReg.class);
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final RestTemplate restTemplate = new RestTemplate();
@@ -53,7 +57,10 @@ public class OpaClient {
         requestNode.set("input", objectMapper.valueToTree(input));
         LOG.info("Authorization request:\n" + requestNode.toPrettyString());
 
-        JsonNode responseNode = Objects.requireNonNull(restTemplate.postForObject(URI, requestNode, JsonNode.class));
+        //JsonNode responseNode = Objects.requireNonNull(restTemplate.postForObject(URI, requestNode, JsonNode.class));
+
+        JsonNode responseNode =  Objects.requireNonNull(feignClientConfig.prodregOpa(requestNode));
+
         LOG.info("Authorization response:\n" + responseNode.toPrettyString());
 
         return responseNode.has("result") && responseNode.get("result").asBoolean();

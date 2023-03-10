@@ -9,6 +9,8 @@ allow {
   input.subject.authorities[_] == "ROLE_HR"
 }
 
+
+
 #own salary
 allow {
   input.action == "read"
@@ -33,6 +35,12 @@ users_access[username] = access {
   access := graph.reachable(users_graph, {username})
 }
 
+allow {
+  user := input.user
+  resource := input.resource
+  allowed_resources := user.allowed_resources
+  resource in allowed_resources
+}
 
 #[
 #  {"name": "alice", "subordinates": ["bob", "john"]},
