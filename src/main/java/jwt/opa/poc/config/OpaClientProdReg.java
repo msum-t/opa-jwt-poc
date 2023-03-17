@@ -64,5 +64,6 @@ public class OpaClientProdReg {
         LOG.info("Authorization response:\n" + responseNode.toPrettyString());
 
         return responseNode.has("result") && responseNode.get("result").asBoolean();
+
     }
 }

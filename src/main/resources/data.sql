@@ -2,28 +2,7 @@ INSERT INTO user_tble (id,username, password,email_id,role) VALUES (101,'susmith
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (102,'sampath', 'sampath','sampath@gmail.com','APPROVER');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (103,'ruchira', 'ruchira','ruchira@gmail.com','DEALER');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (104,'opsteam', 'opsteam','opsteam@gmail.com','OPS');
-INSERT INTO user_tble (id,username, password,email_id,role) VALUES (105,'admin', 'admin','admin@gmail.com','ADMIN');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO user_tble (id,username, password,email_id,role) VALUES (105,'nondega', 'nondega','nondega@gmail.com','nondega');
 
 
 -- user for authentication
