@@ -1,8 +1,19 @@
-INSERT INTO user_tble (id,username, password,email_id,role) VALUES (101,'susmithas1', 'susmithas1','susmithas1@gmail.com','SALES');
+INSERT INTO user_tble (id, username, password, email_id, role) VALUES(101, 'susmithas1', 'susmithas1', 'susmithas1@gmail.com', 'SALES'),(106, 'susmithas1', 'susmithas1', 'susmithas1@gmail.com', 'APPROVER'),(107, 'susmithas1', 'susmithas1', 'susmithas1@gmail.com', 'DEALER');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (102,'sampath', 'sampath','sampath@gmail.com','APPROVER');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (103,'ruchira', 'ruchira','ruchira@gmail.com','DEALER');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (104,'opsteam', 'opsteam','opsteam@gmail.com','OPS');
 INSERT INTO user_tble (id,username, password,email_id,role) VALUES (105,'nondega', 'nondega','nondega@gmail.com','nondega');
+
+
+INSERT INTO product_tble (id,sale_column1, sale_column2,sale_column3,approver_column4,approver_column5,approver_column6,dealer_column7,dealer_column8,dealer_column9,ops_column10,ops_column11,ops_column12) VALUES(1,'salescol1', 'salescol2','salescol3','approvercol4','approvercol5','approvercol6','dealercol7','dealercol8','dealercol9','opscol10','opscol11','opscol12');
+INSERT INTO product_tble (id,sale_column1, sale_column2,sale_column3,approver_column4,approver_column5,approver_column6,dealer_column7,dealer_column8,dealer_column9,ops_column10,ops_column11,ops_column12) VALUES(2,'salescol1', 'salescol2','salescol3','approvercol4','approvercol5','approvercol6','dealercol7','dealercol8','dealercol9','opscol10','opscol11','opscol12');
+
+
+
+
+
+
+
 
 
 -- user for authentication

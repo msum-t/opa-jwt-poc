@@ -1,7 +1,6 @@
 package jwt.opa.poc.users;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,7 +17,6 @@ public class User {
     private String username;
     private String password;
     private String emailId;
-
     private String role;
 
 }

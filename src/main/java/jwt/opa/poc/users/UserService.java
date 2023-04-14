@@ -9,9 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -23,12 +21,18 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user= userRepo.findByusername(username);
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),getAuthority(user));
+        List<User> users = userRepo.findByusername(username);
+        if (users.isEmpty()) {
+            throw new UsernameNotFoundException("User not found");
+        }
+        return new org.springframework.security.core.userdetails.User(users.get(0).getUsername(), users.get(0).getPassword(), getAuthority(users));
     }
-    private Set<SimpleGrantedAuthority> getAuthority(User user) {
+
+    private Set<SimpleGrantedAuthority> getAuthority(Collection<User> users) {
         Set<SimpleGrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new SimpleGrantedAuthority("ROLE_"+user.getRole()));
+        for (User user : users) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+        }
         return authorities;
     }
 }

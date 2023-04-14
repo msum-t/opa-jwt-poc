@@ -3,7 +3,11 @@ server:
 spring:
   h2:
     console: true
-
+  dev-tools:
+    restart:
+      enabled: true
+  jackson:
+    default-property-inclusion: NON_NULL
   datasource:
     url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
     driver-class-name: org.h2.Driver
@@ -12,3 +16,12 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     defer-datasource-initialization: true
+
+
+
+role-base-column-value:
+  sales: id,sale_column1,sale_column2,sale_column3
+  approver: id,approver_column4,approver_column5,approver_column6
+  dealer: id,dealer_column7,dealer_column8,dealer_column9
+  ops: id,ops_column10,ops_column11,ops_column12
+
