@@ -1,0 +1,34 @@
+{
+  "user_roles": [
+    "ROLE_SALES",
+    "ROLE_APPROVER",
+    "ROLE_DEALER",
+    "ROLE_OPS"
+  ],
+  "roles_column": {
+    "ROLE_SALES": [
+      "id",
+      "sale_column1",
+      "sale_column2",
+      "sale_column3"
+    ],
+    "ROLE_APPROVER": [
+      "id",
+      "approver_column4",
+      "approver_column5",
+      "approver_column6"
+    ],
+    "ROLE_DEALER": [
+      "id",
+      "dealer_column7",
+      "dealer_column8",
+      "dealer_column9"
+    ],
+    "ROLE_OPS": [
+      "id",
+      "ops_column10",
+      "ops_column11",
+      "ops_column12"
+    ]
+  }
+}
